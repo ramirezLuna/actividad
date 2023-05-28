@@ -1,3 +1,54 @@
+
+/procedimiento de insertar Insertar empleado/ 
+DELIMITER //
+CREATE PROCEDURE Insertemployee(
+    IN p_name varchar(50),
+    IN p_age int
+)
+BEGIN 
+    INSERT INTO employees(name,age)
+    VALUES(p_name,p_age);
+END //
+DELIMITER ;
+
+===================================================================================
+
+/procedimiento buscar empleados GetAllEmployees/ 
+
+DELIMITER //
+CREATE PROCEDURE GetAllEmployees()
+BEGIN
+    SELECT * FROM employees;
+END //
+DELIMITER ;
+
+===================================================================================
+
+/procedimiento de actualizar Actualizar empleados/
+CREATE PROCEDURE UpdateEmployees(
+    IN P_employeeId int,
+    IN p_name varchar(50),
+    IN p_age int
+)
+BEGIN
+    UPDATE employees
+    SET name=p_name, age=p_age
+    WHERE employeeId = P_employeeId;
+END;
+===================================================================================
+
+/eliminar empoleados Eliminar empleados/
+CREATE PROCEDURE Deleteemployees(
+    IN p_employeeId int
+)
+BEGIN
+    DELETE from employees WHERE 
+    employeeId = p_employeeId;
+END;
+
+
+
+
 <?php
 // Conexión a la base de datos
 $host = 'localhost';
